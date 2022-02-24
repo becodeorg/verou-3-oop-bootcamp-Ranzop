@@ -5,15 +5,12 @@ class Fruit
     public int $amount;
     public float $cost;
     public float $BTW;
-    public string $discountMessage;
 
-
-    public function __construct(int $amount,float $cost, float $BTW, string $discountMessage)
+    public function __construct(int $amount,float $cost, float $BTW)
         {
             $this ->amount = $amount;
             $this ->cost = $cost;
             $this ->BTW = $BTW;
-            $this ->discountMessage = $discountMessage;
         }
 
     public function getDiscount($discount)

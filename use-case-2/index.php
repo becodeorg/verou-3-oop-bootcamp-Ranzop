@@ -42,13 +42,14 @@ print_r($bananaArray);
 
 
 
-$banana = new Fruit (6, 1, 0.06, " ");
-$wine = new Wine (2, 10, 0.21, " ");
+$banana = new Fruit (6, 1, 0.06, "");
+$wine = new Wine (2, 10, 0.21, "");
 
 echo $banana->getInfo();
 echo $wine->getInfo();
 
 $wine->getDiscount(0.5);
+
 $wine->displayDiscountMessage();
 
 echo $wine->getInfo();

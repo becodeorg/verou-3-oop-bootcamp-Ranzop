@@ -13,8 +13,12 @@ class Student
             $this ->group = $group;
         }
     
-    public function getMeanGroup()
-    {
-        $groupMean = &$this->grade;
+    public function changeGroup($changeGroup){
+    $this->group = $changeGroup;
+    return $this->group;
+    }
+    public function getInfo() {
+        return $this->group;
     }
 }
+
