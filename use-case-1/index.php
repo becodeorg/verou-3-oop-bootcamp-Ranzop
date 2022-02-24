@@ -1,4 +1,12 @@
 <?php
+declare(strict_types=1);
+
+require './Wine.php';
+
+ini_set('display_errors', '1');
+ini_set('display_startup_errors', '1');
+error_reporting(E_ALL);
+
 // approach without class
 $bananas = 1;
 $apples = 1.5;
@@ -31,9 +39,11 @@ print_r($banana);
 $bananaArray = (array)$banana;
 print_r($bananaArray);
 
-require "./Fruit.php";
+
+
 
 $banana = new Fruit (6, 1, 0.06);
-
+$wine = new Wine (2, 10, 0.21);
 
 echo $banana->getInfo();
+echo $wine->getInfo();
