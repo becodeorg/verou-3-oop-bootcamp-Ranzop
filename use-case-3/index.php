@@ -47,6 +47,20 @@ echo getTotalScore($students)/count($students);
 echo $student8->changeGroup(2);
 echo $student8->getInfo();
 
+function getGroupMean ($students){
+$meanGroup1 = 0;
+$meanGroup2 = 0;
+    foreach ($students as $student){
+    if ($student->group == 1) {
+        $meanGroup1 += $student->grade;
+    }
+    else if ($student->group == 2) {
+        $meanGroup2 += $student->grade;
+    }
+}
+    return [$meanGroup1, $meanGroup2];
+}
+print_r(getGroupMean($students));
 
 // je kan twee waardes returnen uit een functie met een array
 // return [value1, value2]
