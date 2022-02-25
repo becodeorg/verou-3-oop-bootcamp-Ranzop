@@ -78,10 +78,10 @@ $group2 = [];
 
     foreach ($students as $student){
         if ($student->group == 1) {
-            $group1[] = $student;
+            $group1[] = $student->grade;
         }
         else if ($student->group == 2){
-            $group2[] = $student;
+            $group2[] = $student->grade;
         }
     }    
     $dividedGroups = [$group1, $group2];
@@ -96,11 +96,13 @@ function balanceGroupLevel ($dividedGroups) {
 $bestStudent1 = "";    
 $bestStudent2 = "";    
 $worstStudent1 = "";    
-$worstStudent2 = "";    
-$bestStudent1 = max($dividedGroups[0]);
-$bestStudent2 = max($dividedGroups[1]);
-$worstStudent1 = min($dividedGroups[0]);
-$worstStudent2 = min($dividedGroups[1]);
+$worstStudent2 = "";
+foreach ($dividedGroups as $array) {  
+$bestStudent1 = max($array->grade);
+$bestStudent2 = max($array->grade);
+$worstStudent1 = min($array->grade);
+$worstStudent2 = min($array->grade);
+    }
 
 return [$bestStudent1, $bestStudent2, $worstStudent1, $worstStudent2];
 }
