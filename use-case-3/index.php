@@ -69,27 +69,55 @@ print_r(getGroupMean($students));
 
 
 // this function won't work because the foreach loop unpacks the array
-// but then on the line with the max function you are it expects an array again.
+// but then on the line with the max function it expects an array again.
 // we could loop through the array, find who's part of what group
 // then push them into another array and then fnd the best and worst performing students
-function balanceGroupScores ($students){
-$bestStudent1 = "";
-$bestStudent2 = "";
-$worstStudent1 = "";
-$worstStudent2 = "";
+function makeGroups ($students){
+$group1 = [];
+$group2 = [];
+
     foreach ($students as $student){
         if ($student->group == 1) {
-            $bestStudent1 = max($students->grade);
-            $worstStudent1 = min($students->grade);
+            $group1[] = $student;
         }
         else if ($student->group == 2){
-            $bestStudent2 = max($students->grade);
-            $worstStudent2 = min($students->grade);
+            $group2[] = $student;
         }
     }    
-    return [$bestStudent1, $bestStudent2, $worstStudent1, $worstStudent2];   
+    $dividedGroups = [$group1, $group2];
+    return $dividedGroups;   
 }
-print_r(balanceGroupScores($students));
+
+echo '<pre>';
+print_r(makeGroups($students));
+echo '</pre>';
+
+function balanceGroupLevel ($dividedGroups) {
+$bestStudent1 = "";    
+$bestStudent2 = "";    
+$worstStudent1 = "";    
+$worstStudent2 = "";    
+$bestStudent1 = max($dividedGroups[0]);
+$bestStudent2 = max($dividedGroups[1]);
+$worstStudent1 = min($dividedGroups[0]);
+$worstStudent2 = min($dividedGroups[1]);
+
+return [$bestStudent1, $bestStudent2, $worstStudent1, $worstStudent2];
+}
+
+
+echo '<pre>';
+print_r(balanceGroupLevel($students));
+echo '</pre>';
 
 // je kan twee waardes returnen uit een functie met een array
 // return [value1, value2]
+
+
+
+
+
+
+
+
+
