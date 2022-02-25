@@ -1,9 +1,11 @@
 <?php
+
 require "./Student.php";
 
 ini_set('display_errors', '1');
 ini_set('display_startup_errors', '1');
 error_reporting(E_ALL);
+
 
 
 $student1 = new Student ("Magali", 18, 1);
@@ -29,7 +31,7 @@ $student19 = new Student ("Wahid", 20, 2);
 $student20 = new Student ("Mahmoud", 10, 2);
 
 
-$students = array ($student1, $student2, $student3, $student4, $student5, $student6, $student7, $student8, $student9, $student10,
+$students = array($student1, $student2, $student3, $student4, $student5, $student6, $student7, $student8, $student9, $student10,
 $student11, $student12, $student13, $student14, $student15, $student16, $student17, $student18, $student19, $student20);
 
 function getTotalScore($students){
@@ -78,38 +80,39 @@ $group2 = [];
 
     foreach ($students as $student){
         if ($student->group == 1) {
-            $group1[] = $student->grade;
+            $group1[$student->name] = $student->grade;
         }
         else if ($student->group == 2){
-            $group2[] = $student->grade;
+            $group2[$student->name] = $student->grade;
         }
     }    
     $dividedGroups = [$group1, $group2];
     return $dividedGroups;   
 }
 
-echo '<pre>';
+$dividedGroups = makeGroups($students);
+
+/* echo '<pre>';
 print_r(makeGroups($students));
-echo '</pre>';
+echo '</pre>'; */
 
 function balanceGroupLevel ($dividedGroups) {
 $bestStudent1 = "";    
 $bestStudent2 = "";    
 $worstStudent1 = "";    
 $worstStudent2 = "";
-foreach ($dividedGroups as $array) {  
-$bestStudent1 = max($array->grade);
-$bestStudent2 = max($array->grade);
-$worstStudent1 = min($array->grade);
-$worstStudent2 = min($array->grade);
-    }
-
+foreach ($dividedGroups as $array) { 
+$bestStudent1 = max($array);
+$bestStudent2 = max($array);
+$worstStudent1 = min($array);
+$worstStudent2 = min($array);
+}
 return [$bestStudent1, $bestStudent2, $worstStudent1, $worstStudent2];
 }
 
 
 echo '<pre>';
-print_r(balanceGroupLevel($students));
+print_r(balanceGroupLevel($dividedGroups));
 echo '</pre>';
 
 // je kan twee waardes returnen uit een functie met een array
