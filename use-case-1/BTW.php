@@ -1,15 +1,19 @@
 <?php
 
-class BTW extends Fruit
+require "./Item.php";
+
+class BTW extends Item
 {
-    public $percentage;
+    public int $amount;
+    public float $cost;
+    public float $BTW;
     
 
-    public function __construct(int $amount,float $cost)
-        {
-            $this ->amount = $amount;
-            $this ->cost = $cost;
-        }
+public function __construct(int $amount,float $cost, float $BTW)
+    {
+        parent:: __construct($amount, $cost);
+        $this->BTW = $BTW;
+    }
 
 
     public function getInfo()
