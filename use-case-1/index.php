@@ -48,6 +48,12 @@ echo $wine->getInfo();
 echo $banana->getPrice();
 echo $wine->getPrice(); */
 
+// Using this approach, I've added one property per class, i.e. I've used each class
+// as an additional property.
+// This approach ignores the fact that classes are supposed to be coherent
+// sets of properties
+// but, it does give maximum control
+
 $basket = [
     "apple" => new Item (3, 1.5),
     "banana" => new Item (6, 1),
@@ -75,10 +81,7 @@ var_dump($basketBTWAndType);
 echo '</pre>';
 
 foreach ($basketBTWAndType as $i => $product){
-$appleTotalCost =$product->calcTotalCost($basketBTWAndType["apple"]);
+$appleTotalCost =$product->calcTotalCost($basketBTWAndType);
 echo $appleTotalCost;
 }
 
-
-/* Calculate the total price
-Calculate how much of the total price is tax (fruit goes at 6%, wine is 21%) */

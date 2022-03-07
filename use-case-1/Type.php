@@ -21,12 +21,12 @@ class Type extends BTW
     {
     return "<br>This $this->type costs €$this->cost <br>
     and we ordered $this->amount;<br> 
-    the VAT on this item is $this->BTW<br>
-    meaning that, the total VAT to be paid is<br>
-    €" . $this->cost*$this->amount*$this->BTW . " <br>
-    The amount to be paid before taxes is " .$this->cost*$this->amount. "<br>
-    The amount to be paid after reduction of taxes is "
-    .$this->cost*$this->amount-($this->cost*$this->amount*$this->BTW)."
+    the VAT on this item is $this->BTW% <br>
+    meaning that, the total VAT to be paid is
+    €". $this->cost*$this->amount*$this->BTW . "<br>
+    The amount to be paid before taxes is €" .$this->cost*$this->amount. "<br>
+    The amount to be paid after reduction of taxes is €"
+    .$this->cost*$this->amount-($this->cost*$this->amount*$this->BTW)."<br><br>
     The government, and the taxpayer thank you for your business"; 
     }
 
