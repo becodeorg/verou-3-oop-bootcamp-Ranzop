@@ -34,4 +34,11 @@ class Type extends BTW
     {
         return "The total price for the selected amount of $this->name is: " . $this->cost*$this->amount . "<br>";
     }
+
+    public function getFruitDiscount()
+    {
+        if($type = "fruit"){
+            $this->cost *= 0.5;
+        }
+    }
 }

@@ -81,7 +81,20 @@ var_dump($basketBTWAndType);
 echo '</pre>';
 
 foreach ($basketBTWAndType as $i => $product){
-$appleTotalCost =$product->calcTotalCost($basketBTWAndType);
-echo $appleTotalCost;
+$TotalCost =$product->calcTotalCost($basketBTWAndType);
+echo $TotalCost;
 }
 
+/* foreach ($basketBTWAndType as $i => $product){
+$TotalCost =$product->calcTotalCost($basketBTWAndType);
+echo $TotalCost;
+} */
+
+
+/* Consider the same basket as in use case 1.
+The shop owner wants to have a way to have 50% off every fruit. 
+Can you find a way to implement the discount once,
+and re-use it efficiently for every fruit? */
+
+//TODO: write algorithm that targets the Type property
+//TODO: if is fruit, reduce price by 0.5
